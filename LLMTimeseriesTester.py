@@ -599,12 +599,12 @@ class LLMNeedleHaystackTester:
                     average_value = df['Value'].mean()
                     # Choose the greater value between average and previous day's value
                     chosen_value = max(average_value, previous_value)
-                    print('chose value', chosen_value)
+                    #print('chose value', chosen_value)
          
                     new_value = chosen_value * (1 + anomaly_percentage/100)
-                    print('new value pre round', new_value)
+                    #print('new value pre round', new_value)
                     new_value = round(float(new_value),2)  # Convert new_value to float
-                    print('new value', new_value)
+                    #print('new value', new_value)
                     df['Value'] = df['Value'].astype(float)
                     df.loc[df['Date'] == next_day, 'Value'] = new_value
                 current_date = datetime.strptime(next_day, '%Y-%m-%d')
